@@ -5,7 +5,9 @@ class UsersController {
     public  function actionAll()
     {
         $items = Users::getAll();
-        include __DIR__ . '/../views/users/all.php';
+        $view = new View();
+        $view->assign('items', $items);
+        $view->display('users/all.php');
     }
 
 
@@ -13,7 +15,9 @@ class UsersController {
     {
         $id = $_GET['id'];
         $item = Users::getOne($id);
-        include __DIR__ . '/../views/users/one.php';
+        $view = new View();
+        $view->assign('items', $item);
+        $view->display('users/one.php');
     }
 
 }
