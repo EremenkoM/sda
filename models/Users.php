@@ -3,9 +3,9 @@
 class Users
     extends AbstractModel
 {
-    public $id;
-    public $title;
-    public $text;
+   //public $id;
+   //public $login;
+   //public $password;
 
     protected static $table = 'masters';
     protected static $class = 'Users';

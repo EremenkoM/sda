@@ -2,11 +2,14 @@
 
 class UsersController {
 
+
     public  function actionAll()
     {
-        $items = Users::getAll();
+        $users = Users::getAll();
         $view = new View();
-        $view->assign('items', $items);
+        $view->assign('users', $users);
+        //$view->items = $users;
+        //var_dump($view->items);
         $view->display('users/all.php');
     }
 
@@ -14,9 +17,11 @@ class UsersController {
     public function actionOne()
     {
         $id = $_GET['id'];
-        $item = Users::getOne($id);
+        $user = Users::getOne($id);
         $view = new View();
-        $view->assign('items', $item);
+        $view->assign('user', $user);
+        //var_dump($user);
+        //$view->item = $user;
         $view->display('users/one.php');
     }
 

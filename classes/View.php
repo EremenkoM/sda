@@ -9,6 +9,17 @@ class View
         $this->data[$name] = $value;
     }
 
+
+   /* public  function  __set($k, $v)
+    {
+        $this->data[$k] = $v;
+    }
+
+    public  function  __get($v)
+    {
+        return $this->data = $v;
+    }*/
+
     public  function display ($template)
     {
         foreach ($this->data as $key => $val){
