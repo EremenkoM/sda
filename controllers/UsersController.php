@@ -7,9 +7,8 @@ class UsersController {
     {
         $users = Users::getAll();
         $view = new View();
-        $view->assign('users', $users);
-        //$view->items = $users;
-        //var_dump($view->items);
+        //$view->assign('users', $users);
+        $view->users = $users;
         $view->display('users/all.php');
     }
 
@@ -18,10 +17,10 @@ class UsersController {
     {
         $id = $_GET['id'];
         $user = Users::getOne($id);
+
         $view = new View();
-        $view->assign('user', $user);
-        //var_dump($user);
-        //$view->item = $user;
+        //$view->assign('user', $user);
+        $view->user = $user;
         $view->display('users/one.php');
     }
 
