@@ -1,6 +1,19 @@
-<?php foreach ($this->data['users'] as $item):?>
-    <h1>Логин:<?php echo $item->login;?></h1>
-    <div>Пароль:<?php echo $item->password;?></div>
-    <div>Имя:<?php echo $item->name_masters;?></div>
-    <div>Фамилия:<?php echo $item->surname_masters;?></div>
-<? endforeach?>
+<div class="general_cont">
+
+<?php foreach ($users as $item):?>
+    <div class="user_view">
+
+        <a href="index.php?ctrl=Users&act=One&id=<?php echo $item->id;?>">
+            <div class="avatar" ><?php echo 'avatar'?></div>
+        </a>
+                    <span><?php echo $item->name_masters; ?>
+                        <?php echo $item->surname_masters; ?></span>
+        <br>
+        <span>Специальность: <?php echo $item->profession; ?></span>
+
+        <div><?php echo $item->comment; ?></div>
+
+    </div>
+<?php endforeach; ?>
+
+</div>

@@ -1,27 +1,35 @@
 <?php
 
+use Application\Models\Users;
+
 class UsersController {
-
-
     public  function actionAll()
     {
-        $users = Users::getAll();
+        $users = Users::findAll();
         $view = new View();
-        //$view->assign('users', $users);
-        $view->users = $users;
-        $view->display('users/all.php');
+        $view->users = $users ;
+        $view->display('users\all.php');
+
     }
 
 
     public function actionOne()
     {
         $id = $_GET['id'];
-        $user = Users::getOne($id);
-
+        $user = Users::findOneByPk($id);
         $view = new View();
-        //$view->assign('user', $user);
-        $view->user = $user;
-        $view->display('users/one.php');
+        $view->users = $user;
+        $view->display('users\one.php');
+    }
+
+    public function insertUser()//доделать!!!
+    {
+        $user = new Users();
+        $user->login = 'Arci';
+        $user->password = 'Password';
+        $user->name_masters = 'word';
+        $user->surname_masters = 'Pass';
+        $user->save();
     }
 
 }

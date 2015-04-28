@@ -1,14 +1,10 @@
 <?php
 
+//namespace Application\Classes;
+
 class View
 {
-    protected $data = array();
-
-    /*public function assign($name, $value)
-    {
-        $this->data[$name] = $value;
-    }*/
-
+    protected $data = [];
 
     public  function  __set($k, $v)
     {
@@ -32,11 +28,37 @@ class View
         $content = ob_get_contents();
         ob_end_clean();
         return $content;
+
+    }
+
+    public function view_include($fileName, $vars = [])
+    {
+        // Устанавливаем переменные
+        foreach($vars as $key => $value)
+            $$key = $value;
+
+        // Генерация HTML в строку.
+        ob_start();
+        include $fileName;
+        return ob_get_clean();
     }
 
     public function display($template)
     {
-        echo $this->render($template);
+        $v = $this->render($template);
+        $path = __DIR__ . '/../views/index.php';
+        echo $this->view_include($path, ['content' => $v]);
     }
 
 }
+/*
+// Внутренний шаблон.
+$content = view_include('views/start.php');
+
+// Внешний шаблон.
+$page = view_include(
+    'views/index.php',
+    array('title' => $title, 'content' => $content));
+*/
+// Вывод.
+//echo $page;
