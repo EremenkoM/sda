@@ -1,7 +1,5 @@
 <?php
 
-use Application\Models\Users;
-
 class UsersController {
     public  function actionAll()
     {
@@ -9,6 +7,7 @@ class UsersController {
         $view = new View();
         $view->users = $users ;
         $view->display('users\all.php');
+
 
     }
 
@@ -20,16 +19,11 @@ class UsersController {
         $view = new View();
         $view->users = $user;
         $view->display('users\one.php');
-    }
 
-    public function insertUser()//доделать!!!
-    {
-        $user = new Users();
-        $user->login = 'Arci';
-        $user->password = 'Password';
-        $user->name_masters = 'word';
-        $user->surname_masters = 'Pass';
-        $user->save();
+
+        $db = new DB();
+        var_dump($db->lastInsertId());
+
     }
 
 }

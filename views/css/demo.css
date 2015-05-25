@@ -1,5 +1,10 @@
 @import url('reset.css');
 /* General Demo Style */
+form {
+    background: rgba(255, 255, 255, 0.73);
+    padding: 0px;
+    margin: 0px auto;
+}
 .avatar {
     margin: 8px;
     float: left;
@@ -40,10 +45,13 @@
     -webkit-box-shadow: 1px 0px 2px #000;
     box-shadow: 1px 0px 2px #000;*/
 }
+.general_cont a {
+    background: #000000;
+}
 body{
-    margin: 0px auto;
+    margin: 0 auto;
     width: 1350px;
-    background:#e6eecc url(../images/beige_paper.png) repeat top left;
+    background: #e6eec4; url(../images/beige_paper.png) repeat top left;
 	color: #333;
 	font-family: 'Terminal Dosis', Arial, sans-serif;
 	font-size: 13px;

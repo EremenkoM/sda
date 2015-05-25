@@ -1,16 +1,24 @@
 <?php
+
 require __DIR__ . '/autoload.php';
 
 $ctrl = isset($_GET['ctrl']) ? $_GET['ctrl']:'Users';
 $act = isset($_GET['act']) ? $_GET['act']:'All';
 
-$controllerClassName = $ctrl . 'Controller';
+$controllerClassName =  $ctrl . 'Controller';
 
 $controller = new $controllerClassName;
 
 $method = 'action' . $act;
 $controller->$method();
-
+/*
+//применяем json
+$content = file_get_contents(__DIR__ . '/composer.json');
+$obj = json_decode($content);
+echo $obj->foo;
+//обратная функция
+//json_encode($obj); //можно записать в файл
+*/
 /* реализаци исключений примерная. Ловим исключения
 
 try {

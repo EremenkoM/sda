@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <div class="header">
-                войти\ выйти \ отойти... <br><br><br>
+                <a href="lk/index.php">войти</a><br>
             </div>
 
             <div class="left-side">
@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="index.php?ctrl=Org&act=All">
                             <span class="ca-icon"> </span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Строительные организации</h2>

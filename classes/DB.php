@@ -1,5 +1,6 @@
 <?php
 
+
 class DB
 {
     private $dbh;
@@ -32,6 +33,6 @@ class DB
     }
     public function lastInsertId()
     {
-        return $this->dbh->lastInsertId();
+        return $this->dbh->lastInsertId( $name = 'id_masters');
     }
 }
