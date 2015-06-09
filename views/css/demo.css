@@ -8,9 +8,6 @@ form {
 .avatar {
     margin: 8px;
     float: left;
-    width: 100px;
-    height: 100px;
-    border: solid darkred;
 }
 .user_view {
     margin:1px auto;
@@ -36,14 +33,6 @@ form {
     margin: 0px auto;
     width: 967px;
     border-radius: 10px;
-
-    /*opacity: 0.9;
-    /*text-transform: capitalize;
-    z-index: 9999;
-    position: static;
-    -moz-box-shadow: 1px 0px 2px #000;
-    -webkit-box-shadow: 1px 0px 2px #000;
-    box-shadow: 1px 0px 2px #000;*/
 }
 .general_cont a {
     background: #000000;
@@ -51,7 +40,7 @@ form {
 body{
     margin: 0 auto;
     width: 1350px;
-    background: #e6eec4; url(../images/beige_paper.png) repeat top left;
+    background: #e6eec4 url(../images/beige_paper.png) repeat top left;
 	color: #333;
 	font-family: 'Terminal Dosis', Arial, sans-serif;
 	font-size: 13px;

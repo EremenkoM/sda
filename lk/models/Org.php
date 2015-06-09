@@ -7,9 +7,10 @@
  * @property $name_org
  * @property $city_org
  * @property $specification
+ * @property $avatar
  */
 class Org
-    extends AbstractModel
+    extends AbstractLkModel
 {
     protected static $table = 'org';
     protected static $id = 'id_org';

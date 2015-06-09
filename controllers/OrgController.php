@@ -8,7 +8,6 @@ class OrgController {
         $org = Org::findAll();
         $view = new View();
         $view->org = $org ;
-        var_dump($org);
         $view->display('org\all.php');
 
     }
@@ -20,7 +19,6 @@ class OrgController {
         $org = Org::findOneByPk($id);
         $view = new View();
         $view->org = $org;
-
         $view->display('org\one.php');
     }
 

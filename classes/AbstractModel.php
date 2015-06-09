@@ -59,7 +59,7 @@ abstract class AbstractModel
         return false;
 
     }
-
+/*
     public function insert ()
     {
         $cols = array_keys($this->data);
@@ -81,15 +81,16 @@ abstract class AbstractModel
             $this->id = $db->lastInsertId();
         }
     }
-
+*/
+    /*
    public function update()
     {
         $cols = [];
         $data = [];
         foreach ($this->data as $k => $v) {
-            /*if ('id' == $k){
+            if ('id' == $k){
                 continue;
-            }*/
+            }
             $data[':' . $k] = $v;
             $cols[] = $k . '=:' . $k;
         }
@@ -103,7 +104,7 @@ abstract class AbstractModel
         $db = new DB();
         $db->execute($sql, $data);
     }
-
+*/
    /*
     public function save()
     { var_dump($this->id);

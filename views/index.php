@@ -16,7 +16,7 @@
     <body>
         <div class="container">
             <div class="header">
-                <a href="lk/index.php">войти</a><br>
+                <a href="lk/start">войти</a><br>
             </div>
 
             <div class="left-side">

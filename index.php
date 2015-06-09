@@ -11,6 +11,7 @@ $controller = new $controllerClassName;
 
 $method = 'action' . $act;
 $controller->$method();
+
 /*
 //применяем json
 $content = file_get_contents(__DIR__ . '/composer.json');

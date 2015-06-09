@@ -19,11 +19,5 @@ class UsersController {
         $view = new View();
         $view->users = $user;
         $view->display('users\one.php');
-
-
-        $db = new DB();
-        var_dump($db->lastInsertId());
-
     }
-
 }

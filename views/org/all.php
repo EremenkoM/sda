@@ -1,11 +1,10 @@
 <div class="general_cont">
-    <a href="index.php?ctrl=Admin&act=ViewInsert">Добавить мастера</a>
 
 <?php foreach ($org as $item):?>
     <div class="user_view">
 
         <a href="index.php?ctrl=Org&act=One&id=<?php echo $item->id_org;?>">
-            <div class="avatar" ><?php echo 'avatar'?></div>
+            <div><img class="avatar" src="lk/views/img/<?=$item->avatar;?>.png"></div>
         </a>
                             <span>
                                 <?php echo $item->name_org; ?>
