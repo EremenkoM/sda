@@ -1,8 +1,51 @@
 <?php
+/**
+ * @author SDA
+ * @desc Входной файл
+ */
+session_start();
+//Проверка версии пыхи
+if(version_compare(phpversion(), '5.3.0', '<') == true){
+    die ('Ваша версия PHP старее 5.3. 
+          Для корректной работы скрипта, требуется версия 5.3 и выше!');
+}
+/**
+* Константа полного пути до корня
+*/
 
-require __DIR__ . '/autoload.php';
+define("ROOT_DIR",dirname(__FILE__));
 
-$ctrl = isset($_GET['ctrl']) ? $_GET['ctrl']:'Users';
+/**
+ * Путь до папки с классами
+ */
+define("LIB", ROOT_DIR.'/classes');
+/**
+ * Путь к модели
+ */
+define("MOD", ROOT_DIR.'/models');
+/**
+ * Путь к контроллерам
+ */
+define("CTRL", ROOT_DIR.'/controllers');
+/**
+  * Путь к шаблонам
+  */
+define("TMP", ROOT_DIR.'/views');
+//Инициализируем скрипт
+require_once ROOT_DIR . '/inc/initialization.php';
+initialization::init();
+
+/*
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+//var_dump($path);
+$pathParts = explode('/', $path);
+//var_dump($pathParts);
+$ctrl = !empty($pathParts[2]) ? ucfirst($pathParts[2]) : 'Masters';
+$act = !empty($pathParts[3]) ? ucfirst($pathParts[3]) : 'All';
+//var_dump($ctrl);
+//var_dump($act);
+/**/
+$ctrl = isset($_GET['ctrl']) ? $_GET['ctrl']:'Masters';
 $act = isset($_GET['act']) ? $_GET['act']:'All';
 
 $controllerClassName =  $ctrl . 'Controller';
@@ -11,44 +54,4 @@ $controller = new $controllerClassName;
 
 $method = 'action' . $act;
 $controller->$method();
-
-/*
-//применяем json
-$content = file_get_contents(__DIR__ . '/composer.json');
-$obj = json_decode($content);
-echo $obj->foo;
-//обратная функция
-//json_encode($obj); //можно записать в файл
-*/
-/* реализаци исключений примерная. Ловим исключения
-
-try {
-    $controller = new $controllerClassName;
-    $method = 'action' . $act;
-    $controller->$method();
-} catch (Exception $e) {
-    $view = new View();
-    $view->error = $e->getMessage();
-    $view->display('error.php');
-}
-
-*/
-
-/* реализация ЧП URL пока не понял смотреть 7 урок у Альберта
-положить этот фаил в корень
-(.htaccess)
-        RewriteEngine On
-        RewriteBase /
-
-        RewriteRule ^(.*)$ index.php
-)
-
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$pathParts = explode('/', $path);
-
-$ctrl = !empty($pathParts[1]) ? ucfirst($pathParts[1]) : 'Users';
-$act = !empty($pathParts[2]) ? ucfirst($pathParts[2]) : 'All';
-
-*/
-
-
+?>

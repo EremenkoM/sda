@@ -1,9 +1,8 @@
 @import url('reset.css');
 /* General Demo Style */
-form {
-    background: rgba(255, 255, 255, 0.73);
-    padding: 0px;
-    margin: 0px auto;
+#search input,select{
+    width: 160px;
+    margin-top: 10px;
 }
 .avatar {
     margin: 8px;
@@ -102,8 +101,9 @@ h1 span{
 .header{
 	font-family:'Arial Narrow', Arial, sans-serif;
 	line-height: 24px;
+    height: 25px;
 	font-size: 11px;
-	background: rgba(255, 255, 255, 0.65);
+	/*background: rgba(255, 255, 255, 0.65);*/
 	opacity: 0.9;
 	text-transform: uppercase;
 	z-index: 9999;
@@ -117,7 +117,7 @@ h1 span{
 .header a{
 	padding: 0px 10px;
 	letter-spacing: 1px;
-	color: #ddd;
+	color: #515151;
 	display: block;
 	float: left;
 }

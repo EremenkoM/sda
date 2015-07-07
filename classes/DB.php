@@ -22,7 +22,6 @@ class DB
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-
         return $sth->fetchAll(PDO::FETCH_CLASS/*, $this->className*/);
 
     }
@@ -34,5 +33,14 @@ class DB
     public function lastInsertId()
     {
         return $this->dbh->lastInsertId( $name = 'id_masters');
+    }
+    public function fetch($sql, $params = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+        return $sth->fetch(PDO::FETCH_OBJ);
+    }
+    public function errorInfo(){
+        return $this->dbh->ErrorInfo();
     }
 }

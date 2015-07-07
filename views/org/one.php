@@ -1,22 +1,14 @@
 <div class="general_cont">
     <div class="user_view">
-        <?php
-        foreach ($org as $item):?>
-
             <br>
-            <div><img class="avatar" src="lk/views/img/<?=$item->avatar;?>.png"></div>
-
+            <div><img class="avatar" src="views/lk/img/<?=$org->avatar;?>.png"></div>
                         <span>
-                            <?php echo $item->name_org; ?>
-                            <?php echo $item->city_org; ?>
+                            <?php echo $org->name_org; ?>
+                            <?php echo $org->value_city; ?>
                         </span>
                 <br>
-
                 <div>
-                    <?php echo $item->specification; ?>
+                    <?php echo $org->value_spec; ?>
                 </div>
-
-
-        <?php endforeach; ?>
     </div>
 </div>
