@@ -1,21 +1,18 @@
-<div class="profile">
-
+<div class="avatar">
     <form name="upload" method="POST" ENCTYPE="multipart/form-data">
-        <div class="avatar">
-
             <img src="views/lk/img/<?=$shop->avatar;?>.png"><br>
             <div class="file_upload">
                 <button type="button">Выбрать</button>
                 <div>Файл не выбран</div>
                 <input type="file" name="userfile">
             </div>
-
             <input type="submit" name="upload" value="Загрузить">
-
-        </div>
-
-
     </form>
+</div>
+
+
+
+<div class="profile">
     <form method="post" class="pure-form">
 
         <div class="profile_cont">

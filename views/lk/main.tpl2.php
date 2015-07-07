@@ -41,29 +41,19 @@
     </script>
 </head>
 <body>
-<div id="sub-link-bar"> </div>
-<!-- End sub-link-bar -->
-<div id="wrap">
-    <div id="main-handle">
-        <div class="roundfg">
-            <ul id="main-nav">
-                <li><a class="main-link" href="#" title="Меню профиля">Меню </a>
-                    <ul class="sub-links">
+<div align="center">
+    <br>
+    <div class="pure-menu pure-menu-open pure-menu-horizontal">
+        <ul>
+            <li><a href="<?=HTTP_PATH;?>" title="Перейти на главную">Главная</a></li>
+            <li><a href="index.php?ctrl=User&act=ShowProfile" title="Редактирование профиля">Профиль</a></li>
+            <li><a href="index.php?ctrl=User&act=ShowProfile" title="Просмотреть заявки на выполнение работ">Стол заказов</a></li>
+            <li><a href="logout" title="Выход из личного кабинета">Выход</a></li>
+        </ul>
+    </div>
+    <br><br>
 
-                        <li><a href="<?=HTTP_PATH;?>" title="Перейти на главную">Главная</a></li>
-                        <li><a href="index.php?ctrl=User&act=ShowProfile" title="Редактирование профиля">Профиль</a></li>
 
-                        <li><a href="index.php?ctrl=User&act=ShowProfile" title="Просмотреть заявки на выполнение работ">Стол заказов</a></li>
-                        <li><a href="logout" title="Выход из личного кабинета">Выход</a></li>
-
-                    </ul>
-                </li>
-                <li><a class="close" title="Click to Collapse" href="#">X</a></li>
-            </ul>
-        </div>
-        <!-- End roundfg -->
-        <b class="round"><b class="round5"></b> <b class="round4"></b> <b class="round3"></b> <b class="round2"><b></b></b> <b class="round1"><b></b></b></b> </div>
-    <!-- End main-handle-->
 </div><?//var_dump($content);?>
 <div><?=$content;?></div>
 <!-- End wrap -->
