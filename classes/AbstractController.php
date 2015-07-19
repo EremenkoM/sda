@@ -27,19 +27,7 @@ abstract class AbstractController {
         $view->$v = $val;
         $view->display( $v . '\one.php');
     }
-/*
-    protected static $id = 'id_masters';
-    protected static $city = 'city';
-    protected static $spec = 'profession';
-    protected static $tab_spec = 'profess';
-    protected static $id_spec = 'id_prof';
 
-    protected static $id = 'id_org';
-    protected static $city = 'city';
-    protected static $spec = 'specification';
-    protected static $tab_spec = 'specification_org';
-    protected static $id_spec = 'id_spec';
-*/
     public function actionFind()
     {
         $v = static::$model;

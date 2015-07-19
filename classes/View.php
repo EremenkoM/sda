@@ -24,7 +24,6 @@ class View
         }
         ob_start();
         $goods = Search::findAllGoods();
-        //$user = $this->userLoginStatus();
         $prof = Search::findAllProf();
         $city = Search::findAllCity();
 
@@ -44,9 +43,6 @@ class View
         // Генерация HTML в строку.
         ob_start();
         $user = $this->userLoginStatus();
-       // $prof = Search::findAllProf();
-        //$city = Search::findAllCity();
-
         include $fileName;
         return ob_get_clean();
     }

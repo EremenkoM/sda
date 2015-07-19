@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="rus">
     <head>
         <title>SDA</title>
         <meta charset="UTF-8" />
@@ -18,10 +17,7 @@
         <script src="views/js/slide.js" type="text/javascript"></script>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <meta name="description" content="Creative CSS3 Animation Menus" />
-        <meta name="keywords" content="menu, navigation, animation, transition, transform, rotate, css3, web design, component, icon, slide" />
-        <meta name="author" content="Codrops" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" type="text/css" href="views/css/demo.css" />
         <link rel="stylesheet" type="text/css" href="views/css/style.css" />
@@ -80,7 +76,9 @@
             </div>
             <div class="right-side">
                 <br>
+                <!--
                 <a href="index.php?ctrl=User&act=ShowProfile">LOGIN</a>
+                -->
             </div>
 
 
@@ -114,7 +112,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="index.php?ctrl=Rent">
                             <span class="ca-icon"></span>
                             <div class="ca-content">
                                 <h2 class="ca-main">Аренда</h2>

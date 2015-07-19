@@ -13,7 +13,7 @@ abstract class AbstractModel
 
     public function __set($k, $v)
     {
-        $this->data[$k] =$v;
+        $this->data[$k] = $v;
     }
 
     public function __get($k)
@@ -59,7 +59,7 @@ abstract class AbstractModel
             ' ON ' . static::$spec . ' = ' . static::$id_spec .
             ' WHERE '. $col .  ' =:value OR '. $col2 . '=:value2';
         $db = new DB();
-        var_dump($sql);
+        //var_dump($sql);
         //$db->setClassName($class);
         $res = $db->query($sql, [':value' => $val,':value2' => $val2]);
         /*if (empty($res)) {//исключения для ошибок в PDO

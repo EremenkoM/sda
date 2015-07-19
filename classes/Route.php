@@ -92,12 +92,17 @@ class Route {
              echo "<div class='error'>Профиль изменен</div>";
          }
          if(isset($_POST['profile_shop'])){
-             $mas = new ShopController();
-             $mas->actionUpdateProfileShop();
+             $shop = new ShopController();
+             $shop->actionUpdateProfileShop();
              echo "<div class='error'>Профиль изменен</div>";
          }
          if(isset($_POST['upload'])){
              Upload::uploadImage();
+         }
+         if(isset($_POST['rent'])){
+             $rent = new RentController();
+             $rent->actionUpdateRent();
+             echo "<div class='error'>Профиль изменен</div>";
          }
    	 }
 

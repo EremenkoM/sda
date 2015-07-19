@@ -11,11 +11,22 @@
 </div>
 
 
-
 <div class="profile">
+<!--
+    <div class="b-container">
+        Если вы сдаёте в аренду оборудование нажмите сюда ->
+        <a href="javascript:PopUpShow()"> <button  class="pure-button" >Аренда</button></a>
+    </div>
+    <div class="b-popup" id="popup1">
+        <div class="b-popup-content">
+            <a href="javascript:PopUpHide()"><button  class="pure-button" >Закрыть</button></a>
+        </div>
+    </div>
+-->
     <form method="post" class="pure-form">
-
         <div class="profile_cont">
+
+
             <br>
             <input type="password" name="password" size="50" placeholder="Пароль можно поменять здесь">
             <br>
@@ -42,6 +53,7 @@
             <Br>
             <textarea name="comment" cols="70" rows="5"><?=$shop->comment;?></textarea>
         </div>
+
         <button type="submit" class="pure-button pure-button-primary" name="profile_shop">Сменить профиль</button>
     </form>
 </div>

@@ -33,7 +33,7 @@ extends AbstractModel
         }
         if($result->email === $email && $password === $result->password){
 
-            if($data['remember'] == 1){
+            if(isset($data['remember'])){
                 setCookie("user_id", $result->id, time() +3600 * 24 * 30);
             }
             $_SESSION['user']['id'] = $result->id;

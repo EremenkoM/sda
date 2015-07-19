@@ -9,36 +9,35 @@
     <link rel="stylesheet" href="views/lk/css/forms-min.css" type="text/css">
     <link rel="stylesheet" href="views/lk/css/menus-min.css" type="text/css">
     <link rel="stylesheet" href="views/lk/css/style.css" type="text/css">
-    <link rel="stylesheet" href="views/lk/css/MenuStyle.css" type="text/css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="views/lk/js/jquery.tokenize.js"></script>
+    <link rel="stylesheet" type="text/css" href="views/lk/css/jquery.tokenize.css" />
+
 
     <title>Личный кабинет SDA</title>
 
-    <script type="text/javascript" src="views/lk/js/jquery-1.3.2.min.js"></script>
-    <script type="text/javascript">
+    <!--
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script>
         $(document).ready(function(){
-            $("#main-nav li a.main-link").hover(function(){
-                $("#main-nav li a.close").fadeIn();
-                $("#main-nav li a.main-link").removeClass("active");
-                $(this).addClass("active");
-                $("#sub-link-bar").animate({
-                    height: "40px"
-                });
-                $(".sub-links").hide();
-                $(this).siblings(".sub-links").fadeIn();
-            });
-            $("#main-nav li a.close").click(function(){
-                $("#main-nav li a.main-link").removeClass("active");
-                $(".sub-links").fadeOut();
-                $("#sub-link-bar").animate({
-                    height: "10px"
-                });
-                $("#main-nav li a.close").fadeOut();
-            });
-
-
+            //Скрыть PopUp при загрузке страницы
+            PopUpHide();
         });
-
+        //Функция отображения PopUp
+        function PopUpShow(){
+            $("#popup1").show();
+        }
+        //Функция скрытия PopUp
+        function PopUpHide(){
+            $("#popup1").hide();
+        }
     </script>
+
+    <script type="text/javascript">
+        $('#tokenize').tokenize();
+    </script>
+    -->
 </head>
 <body>
 <div align="center">
@@ -47,7 +46,7 @@
         <ul>
             <li><a href="<?=HTTP_PATH;?>" title="Перейти на главную">Главная</a></li>
             <li><a href="index.php?ctrl=User&act=ShowProfile" title="Редактирование профиля">Профиль</a></li>
-            <li><a href="index.php?ctrl=User&act=ShowProfile" title="Просмотреть заявки на выполнение работ">Стол заказов</a></li>
+            <li><a href="index.php?ctrl=Rent&act=ShowRent" title="Сдать в аренду...">Аренда</a></li>
             <li><a href="logout" title="Выход из личного кабинета">Выход</a></li>
         </ul>
     </div>
