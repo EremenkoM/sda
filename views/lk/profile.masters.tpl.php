@@ -1,6 +1,6 @@
 <div class="avatar">
     <form name="upload"  method="POST" ENCTYPE="multipart/form-data">
-            <img src="views/lk/img/<?=$master->avatar;?>.png"><br>
+            <img src="views/lk/img/<?=$masters->avatar;?>.png"><br>
             <div class="file_upload">
                 <button type="button">Выбрать</button>
                 <div>Файл не выбран</div>
@@ -20,35 +20,33 @@
         </p>
         <p>
             Имя:<br>
-            <input type="text" name="name" size="35" value="<?=$master->name_masters;?>">
+            <input type="text" name="name" size="35" value="<?=$masters->name_masters;?>">
         </p>
         <p>
             Фамилия:<br>
-            <input type="text" name="surname" size="35" value="<?=$master->surname_masters;?>">
+            <input type="text" name="surname" size="35" value="<?=$masters->surname_masters;?>">
         </p>
         <p>
             Род деятельности:<br>
-            <select size="1" name="prof">
-                <option><?=$master->value_prof;?></option>
-                <?php foreach ($prof as $item):?>
-                    <option value="<?=$item->id_prof;?>"><?=$item->value_prof;?></option>
+            <select id="tokenize" multiple="multiple" class="tokenize-sample" name="spc[]">
+                <?php foreach ($spc as $item):?>
+                    <option <?=$item->select;?> value="<?=$item->id_prof;?>"><?=$item->value_prof;?></option>
                 <?php endforeach; ?>
-            </select><br>
+            </select><br><br>
         </p>
         <p>
             Резюме:<br>
-            <input type="text" name="comment" size="35" value="<?=$master->comment;?>">
+            <input type="text" name="comment" size="35" value="<?=$masters->comment;?>">
         </p>
         <p>
             Город:<br>
-            <select size="1" name="city">
-                <option><?=$master->value_city;?></option>
+            <select id="tokenize" multiple="multiple" class="tokenize-sample" name="city[]">
                 <?php foreach ($city as $item):?>
-                    <option value="<?=$item->id_city;?>"><?=$item->value_city;?></option>
+                    <option <?=$item->select;?> value= "<?=$item->id_city;?>"><?=$item->value_city;?></option>
                 <?php endforeach; ?>
-            </select> <br>
+            </select><br><br>
         </p>
-            <input type="hidden" name="id" value="<?=$master->id;?>">
+            <input type="hidden" name="id" value="<?=$masters->id;?>">
             <button type="submit" class="pure-button pure-button-primary" name="profile">Сменить профиль</button>
     </form>
 </div>

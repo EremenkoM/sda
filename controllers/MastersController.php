@@ -23,10 +23,7 @@ extends AbstractController
             $data->avatar = '0';
             $data->insert();
         }
-        $master = $data->findOneByPk($id);
-        $view = new View();
-        $view->master = $master ;
-        $view->displayLk('/lk/profile.tpl.php');
+        $this->actionProfile($id);
     }
 
     public function actionUpdateProfileMaster(){
@@ -40,8 +37,11 @@ extends AbstractController
 
         $data->name_masters = $_POST['name'];
         $data->surname_masters = $_POST['surname'];
-        $data->city = $_POST['city'];
-        $data->profession = $_POST['prof'];
+
+
+        $data->city = $this->trimArray('city');
+        $data->profession = $this->trimArray('spc');
+
         $data->comment = $_POST['comment'];
         $data->update();
     }

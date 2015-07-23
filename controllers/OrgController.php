@@ -12,7 +12,6 @@ extends AbstractController
 
     public function actionProfileOrg()
     {
-
         $data = new Org();
         $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
         if ($data->findOneByPk($id) == false) {
@@ -24,24 +23,21 @@ extends AbstractController
             $data->avatar = '0';
             $data->insert();
         }
-        $org = $data->findOneByPk($id);
-        $view = new View();
-        $view->org = $org ;
-        $view->displayLk('/lk/profile.org.tpl.php');
+        $this->actionProfile($id);
     }
     public function actionUpdateProfileOrg(){
-
         $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
-
         $data = new Org();
         $data->id = $id;
-
         if($_POST['password'] === "" || $_POST['password'] === 0){}
         else{$data->password = validate::hashInit($_POST['password']);}
 
         $data->name_org = $_POST['name'];
-        $data->city_org = $_POST['city'];
-        $data->specification = $_POST['spc'];
+
+        $data->city_org = $this->trimArray('city');
+
+        $data->specification = $this->trimArray('spc');
+
         $data->comment = $_POST['comment'];
         $data->update();
     }

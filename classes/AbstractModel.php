@@ -121,5 +121,45 @@ abstract class AbstractModel
         $db = new DB();
         return $db->fetch($sql, [':id' => $id]);
     }
+    public static function giveCity($id)
+    {
+        $sql = 'SELECT * FROM ' . static::$table . ' WHERE ' .  static::$id  . '=:id ';
+        $db = new DB();
+        $out = $db->fetch($sql, [':id' => $id]);
+        $par = static::$city;
+        return $out->$par;
+    }
+    /*
+     * получаем выбранные опции
+     * для селекторов
+     * */
+    public static function findAllOpt($param)
+    {
+        $sql = 'SELECT * FROM '. $param;
+        $db = new DB();
+        return $db->query($sql);
+    }
 
+    public function getOpt($id,$param)
+    {
+        if ($param == 'city'){
+            $spc = static::$city;
+            $idspc = 'id_city';
+            $data = self::findAllOpt('city');
+        }else{
+            $spc = static::$spec;
+            $idspc = static::$id_spec;
+            $data = self::findAllOpt(static::$tab_spec);
+        }
+        $val = self::findOneByPk($id);
+        $allId = explode(',',$val->$spc);
+
+        foreach($allId as $voo){
+            foreach ($data as $item) {
+                if($item->$idspc == $voo) $item->select = 'selected';
+                if(!isset($item->select)) $item->select = '';
+            }
+        }//var_dump($param);
+        return $data;
+    }
 }

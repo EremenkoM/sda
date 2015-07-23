@@ -39,5 +39,25 @@ abstract class AbstractController {
         $view->$v = $val ;
         $view->display($v . '\all.php');
     }
+    public function actionProfile($id)
+    {
+        $mod = static::$model;
+        $data = new $mod();
+        $v = $data->findOneByPk($id);
+        $city = $data->getOpt($id,'city');
+        $spc = $data->getOpt($id,static::$spec);
+        $view = new View();
+        $view->$mod = $v ;
+        $view->city = $city;
+        $view->spc = $spc ;
+        $view->displayLk('/lk/profile.'.$mod.'.tpl.php');
+    }
+    public function trimArray($param){
+        $str = '';
+        foreach($_POST[$param] as $voo){
+            $str.= $voo . ',';
+        }
+        return trim($str,',' );
+    }
 
 }

@@ -12,9 +12,9 @@ extends AbstractController
 
     public function actionProfileShop()
     {
-
         $data = new Shop();
         $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
+
         if ($data->existString($id) == false) {
             //var_dump($data->existString($id));
             $data->id_shop = $id;
@@ -25,11 +25,7 @@ extends AbstractController
             $data->avatar = '0';
             $data->insert();
         }
-        $shop = $data->findOneByPk($id);
-        $view = new View();
-        //var_dump($shop);
-        $view->shop = $shop ;
-        $view->displayLk('/lk/profile.shop.tpl.php');
+        $this->actionProfile($id);
     }
     public function actionUpdateProfileShop(){
 
@@ -42,8 +38,9 @@ extends AbstractController
         else{$data->password = validate::hashInit($_POST['password']);}
 
         $data->name_shop = $_POST['name'];
-        $data->city_shop = $_POST['city'];
-        $data->goods = $_POST['spc'];
+        $data->city_shop = $this->trimArray('city');
+        $data->goods = $this->trimArray('spc');
+
         $data->comment = $_POST['comment'];
         $data->update();
     }

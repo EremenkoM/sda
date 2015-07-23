@@ -42,7 +42,7 @@
                                 <label><input name="remember" id="rememberme" type="checkbox" checked="checked" value="forever" />&nbspЗапомнить меня </label>
                                 <div class="clear"></div>
                                 <input type="submit" name="login" value="войти" class="bt_login" />
-                                <a class="lost-pwd" href="/<?=DIR;?>recover">Забыл пароль</a>
+                                <a class="lost-pwd" href="index.php?ctrl=User&act=Recover">Забыл пароль</a>
                             </form>
                         </div>
                     </div>

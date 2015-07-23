@@ -17,27 +17,6 @@
 
     <title>Личный кабинет SDA</title>
 
-    <!--
-    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            //Скрыть PopUp при загрузке страницы
-            PopUpHide();
-        });
-        //Функция отображения PopUp
-        function PopUpShow(){
-            $("#popup1").show();
-        }
-        //Функция скрытия PopUp
-        function PopUpHide(){
-            $("#popup1").hide();
-        }
-    </script>
-
-    <script type="text/javascript">
-        $('#tokenize').tokenize();
-    </script>
-    -->
 </head>
 <body>
 <div align="center">
@@ -56,5 +35,10 @@
 </div><?//var_dump($content);?>
 <div><?=$content;?></div>
 <!-- End wrap -->
+
+<script type="text/javascript">
+    $('select#tokenize').tokenize({displayDropdownOnFocus:true});
+</script>
+
 </body>
 </html>

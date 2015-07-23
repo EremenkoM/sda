@@ -13,23 +13,39 @@ extends AbstractController
     {
         $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
         $rent = new Rent();
-        $opt = $rent->getOptValue($id);
         $view = new View();
-        $view->option = $opt;
-        $view->displayLk('/lk/rent.tpl.php');
+        if (Rent::findOneByPk($id)) {
+            $opt = $rent->getOptValue($id);
+            $view->option = $opt;
+            $view->displayLk('/lk/rent.tpl.php');
+        }else $view->displayLk('/lk/newRent.tpl.php');
     }
 
     public function actionUpdateRent(){
-        $str = '';
+
         $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
         $data = new Rent();
-
-        foreach($_POST['rented'] as $voo){
-            $str.= $voo . ',';
-        }
+        $city = $data->getCity($id);
+        $data->city_rent = $city;
         $data->id = $id;
-        $data->rented = trim($str,',' );
+        $data->rented = $this->trimArray('rented');
         $data->updateRent();
+    }
+    public function actionNewRent(){
+        $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
+        $data = new Rent();
+        $city = $data->getCity($id);
+        $data->id_users = $id;
+        $data->city_rent = $city;
+        $data->rented = '1';
+        $data->insert();
+        $this->actionShowRent();
+    }
+    public function actionDeleteRent(){
+        $id = ($_SESSION['user']['id']) ? $_SESSION['user']['id'] : $_COOKIE['user_id'];
+        $data = new Rent();
+        $data->deleteRent($id);
+        $this->actionShowRent();
     }
 
 }

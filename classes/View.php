@@ -23,10 +23,6 @@ class View
             $$key = $val;
         }
         ob_start();
-        $goods = Search::findAllGoods();
-        $prof = Search::findAllProf();
-        $city = Search::findAllCity();
-
         include __DIR__ . '/../views/' . $template;
         $content = ob_get_contents();
         ob_end_clean();

@@ -21,5 +21,8 @@ class UserController {
         $view = new View();
         $view->displayLogin('/lk/sign.tpl.php');
     }
-
+    public function actionRecover(){
+        $view = new View();
+        $view->displayLogin('/lk/repassword.tpl.php');
+    }
 }

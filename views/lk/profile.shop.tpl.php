@@ -34,21 +34,18 @@
             <input type="text" name="name" size="50" value="<?=$shop->name_shop;?>">
             <br>
             Город:<br>
-            <select size="1" name="city">
-                <option value="<?=$shop->id_city;?>"><?=$shop->value_city;?></option>
+            <select id="tokenize" multiple="multiple" class="tokenize-sample" name="city[]">
                 <?php foreach ($city as $item):?>
-                    <option value="<?=$item->id_city;?>"><?=$item->value_city;?></option>
+                    <option <?=$item->select;?> value= "<?=$item->id_city;?>"><?=$item->value_city;?></option>
                 <?php endforeach; ?>
-            </select> <br>
+            </select><br><br>
             Товары:<br>
-            <select size="1" name="spc">
-                <option value="<?=$shop->id_goods;?>"><?=$shop->value_goods;?></option>
-                <?php foreach ($goods as $item):?>
-                    <option value="<?=$item->id_goods;?>"><?=$item->value_goods;?></option>
-                <?php endforeach; ?>
-            </select><br>
-            <input type="hidden" name="id" value="<?=$shop->id;?>">
             <br>
+            <select id="tokenize" multiple="multiple" class="tokenize-sample" name="spc[]">
+                <?php foreach ($spc as $item):?>
+                    <option <?=$item->select;?> value="<?=$item->id_goods;?>"><?=$item->value_goods;?></option>
+                <?php endforeach; ?>
+            </select><br><br>
             Комментарий
             <Br>
             <textarea name="comment" cols="70" rows="5"><?=$shop->comment;?></textarea>

@@ -18,4 +18,5 @@ class Org
     protected static $tab_spec = 'specification_org';
     protected static $id_spec = 'id_spec';
 
+
 }

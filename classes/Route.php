@@ -1,7 +1,7 @@
 <?php
 /**
  * @author SDA
- * @desc Раутинг
+ * @desc Роутинг
  */
 class Route {
    private static $tmp;
@@ -68,7 +68,7 @@ class Route {
    	 	}
 		if(isset($_POST['login'])){
 			if($user->login($_POST)){
-                //$view->displayLk('/lk/news.tpl.php');
+                //$view->displayLk('/lk/newRent.tpl.php');
                 echo "<div class='error'>Добро пожаловать!!</div>";
 					}else{
                         echo "<div class='error'>Ошибка при входе</div>";
@@ -82,6 +82,7 @@ class Route {
 			}
 		}
          if(isset($_POST['profile_org'])){
+             var_dump($_POST);
              $org = new OrgController();
              $org->actionUpdateProfileOrg();
              echo "<div class='error'>Профиль изменен</div>";
@@ -100,9 +101,11 @@ class Route {
              Upload::uploadImage();
          }
          if(isset($_POST['rent'])){
-             $rent = new RentController();
-             $rent->actionUpdateRent();
-             echo "<div class='error'>Профиль изменен</div>";
+			 if (isset($_POST['rented'])){
+                 $rent = new RentController();
+                 $rent->actionUpdateRent();
+                 echo "<div class='error'>Профиль изменен</div>";
+             }else echo "<div class='error'>Профиль не изменен!!! Поле не может быть пустым</div>";
          }
    	 }
 

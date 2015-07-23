@@ -2,7 +2,7 @@
     <form id="search" action="index.php?ctrl=rent&act=Find" method="POST">
         <select size="1" name="id_spec">
             <option value="all">Инструмент...</option>
-            <?php foreach ($prof as $item):?>
+            <?php foreach ($spc as $item):?>
                 <option value="<?=$item->id_prof;?>"><?=$item->value_prof;?></option>
             <?php endforeach; ?>
         </select>
