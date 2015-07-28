@@ -1,13 +1,13 @@
 <div class="general_cont">
     <form id="search" action="index.php?ctrl=Shop&act=Find" method="POST">
-        <select size="1" name="id_spec">
-            <option value="all">Cпециалист...</option>
-            <?php foreach ($prof as $item):?>
-                <option value="<?=$item->id_prof;?>"><?=$item->value_prof;?></option>
+        <select size="1" name="id_goods">
+            <option value="%">Все наименования..</option>
+            <?php foreach ($spc as $item):?>
+                <option value="<?=$item->id_goods;?>"><?=$item->value_goods;?></option>
             <?php endforeach; ?>
         </select>
         <select size="1" name="city_shop">
-            <option value="all">Город...</option>
+            <option value="%">Все города..</option>
             <?php foreach ($city as $item):?>
                 <option value="<?=$item->id_city;?>"><?=$item->value_city;?></option>
             <?php endforeach; ?>
@@ -25,7 +25,7 @@ foreach ($shop as $item):?>
         </a>
                             <span>
                                 <?php echo $item->name_shop; ?>
-                                <?php echo $item->value_city; ?>
+                                <?php echo $item->city_shop; ?>
                             </span>
         <br>
         <span>Специальность: <?php echo $item->value_goods; ?></span>

@@ -7,6 +7,7 @@ extends AbstractController
     protected static $city = 'city_shop';
     protected static $spec = 'goods';
     protected static $id_spec = 'id_goods';
+    protected static $tab_spec = 'goods_shop';
 
 
 

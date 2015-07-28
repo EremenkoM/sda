@@ -8,6 +8,7 @@ extends AbstractController
     protected static $city = 'city';
     protected static $spec = 'profession';
     protected static $id_spec = 'id_prof';
+    protected static $tab_spec = 'profess';
 
     public function actionProfileMaster()
     {

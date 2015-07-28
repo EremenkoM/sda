@@ -9,6 +9,7 @@ extends AbstractController
     protected static $city = 'city_org';
     protected static $spec = 'specification';
     protected static $id_spec = 'id_spec';
+    protected static $tab_spec = 'specification_org';
 
     public function actionProfileOrg()
     {

@@ -9,6 +9,7 @@ class Rent
     protected static $spec = 'rented';
     protected static $tab_spec = 'rented_name';
     protected static $id_spec = 'id_rented';
+    protected static $val_spec = 'value_rented';
 
     public function findAllRent()
     {
@@ -17,23 +18,30 @@ class Rent
         $val = $db->query($sql);
         return $val;
     }
-/*
-    public function getOwnRent($id){
-        $str = '';
-        $val = self::findOneByPk($id);
-        $allId = explode(',',$val->rented);
-        foreach($allId as $voo){
-           $str.= $this->nameRentForId($voo) . ', ';
+    public static function getOwnValue($city){
+        $str='';
+        $val = self::findOneByColumm('%',$city);
+        foreach($val as $v) {
+            $str.=  $v->rented.',';
         }
-        return trim($str,',' );
+        $str = trim($str,',');
+        $arr = explode(',',$str);
+        $str=[];
+        $arr = array_unique($arr);
+        sort($arr);
+        foreach($arr as $k=>$voo){
+           $str[$k] = self::nameValForId($voo);
+        }
+        return $str;
     }
-    private function nameRentForId($id){
-        $sql = ("SELECT value_rented FROM rented_name WHERE id_rented = $id");
+
+    private static function nameValForId($id){
+        $sql = ("SELECT * FROM rented_name WHERE id_rented = $id");
         $db = new DB();
         $v = $db->fetch($sql);
-        return $v->value_rented;
+        return $v;
     }
-*/
+
     public function updateRent()
     {
         $data = [];
@@ -48,7 +56,6 @@ class Rent
 
     public function getOptValue($id)
     {
-
         $val = self::findOneByPk($id);
         $allId = explode(',',$val->rented);
         $rented = $this->findAllRent();

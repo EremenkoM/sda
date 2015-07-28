@@ -15,5 +15,6 @@ class Shop
     protected static $spec = 'goods';
     protected static $tab_spec = 'goods_shop';
     protected static $id_spec = 'id_goods';
+    protected static $val_spec = 'value_goods';
 
 }

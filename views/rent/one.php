@@ -2,10 +2,8 @@
     <div class="user_view">
             <br>
             <div><img class="avatar" src="views/lk/img/<?=$rent->id_users;?>.png"></div>
-                        <span>
-                            <?php //echo $rent->name_shop ?>
-                            <?php echo $rent->value_city; ?>
-                        </span>
+        <?php //var_dump($rent);?><br>
+        <span><?php echo $rent->value_city;?></span>
                 <br>
                 <div>
                     <?php echo $rent->value_rented; ?>

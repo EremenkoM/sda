@@ -7,7 +7,22 @@ extends AbstractController
     protected static $city = 'city_rent';
     protected static $spec = 'rented';
     protected static $id_spec = 'id_rented';
+    protected static $tab_spec = 'rented_name';
 
+
+
+    public  function actionAll()
+    {
+        $data = new Rent();
+        //$val = $data->getOwnValue();
+        $city = $data->findAllOpt('city');
+        $spc = $data->findAllOpt('rented_name');
+        $view = new View();
+        $view->city = $city;
+        $view->spc = $spc ;
+        //$view->rent = $val;
+        $view->display( 'rent\all.php');
+    }
 
     public function actionShowRent()
     {

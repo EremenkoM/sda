@@ -8,12 +8,18 @@ abstract class AbstractController {
     static protected $city;
     static protected $spec;
     static protected $id_spec;
+    static protected $tab_spec;
 
     public  function actionAll()
     {
         $v = static::$model;
+        $data = new $v();
         $val = $v::findAll();
+        $city = $data->findAllOpt('city');
+        $spc = $data->findAllOpt(static::$tab_spec);
         $view = new View();
+        $view->city = $city;
+        $view->spc = $spc ;
         $view->$v = $val;
         $view->display( $v . '\all.php');
     }
@@ -30,14 +36,15 @@ abstract class AbstractController {
 
     public function actionFind()
     {
+        //var_dump($_POST);
         $v = static::$model;
         $col = $_POST[static::$id_spec];
         $col2 = $_POST[static::$city];
-        $val = $v::findOneByColumm(static::$spec,$col,static::$city,$col2);
+        $val = $v::findOneByColumm($col,$col2);
         //var_dump($val);
         $view = new View();
         $view->$v = $val ;
-        $view->display($v . '\all.php');
+        $view->display($v . '\find.php');
     }
     public function actionProfile($id)
     {

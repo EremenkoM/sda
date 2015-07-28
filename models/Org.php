@@ -17,6 +17,7 @@ class Org
     protected static $spec = 'specification';
     protected static $tab_spec = 'specification_org';
     protected static $id_spec = 'id_spec';
+    protected static $val_spec = 'value_spec';
 
 
 }
