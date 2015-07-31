@@ -9,7 +9,7 @@ foreach ($masters as $item):?>
         </a>
                     <span><?php echo $item->name_masters; ?>
                         <?php echo $item->surname_masters; ?></span><br>
-        <span> <?=$item->city;?></span>
+        <span> <?=$item->value_city;?></span>
         <br>
         <span>Специальность: <?php echo $item->value_prof; ?></span>
 

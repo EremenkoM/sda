@@ -25,7 +25,7 @@ foreach ($shop as $item):?>
         </a>
                             <span>
                                 <?php echo $item->name_shop; ?>
-                                <?php echo $item->city_shop; ?>
+                                <?php echo $item->value_city; ?>
                             </span>
         <br>
         <span>Специальность: <?php echo $item->value_goods; ?></span>

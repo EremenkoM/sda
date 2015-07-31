@@ -9,7 +9,7 @@
             </a>
                             <span>
                                 <?php echo $item->name_org; ?>
-                                <?php echo $item->city_org; ?>
+                                <?php echo $item->value_city; ?>
                             </span>
             <br>
             <span>Специальность: <?php echo $item->value_spec; ?></span>

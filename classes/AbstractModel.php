@@ -66,7 +66,7 @@ abstract class AbstractModel
             $str = trim($str,', ');
             $str2 = trim($str2,', ');
             $v->$value = $str;
-            $v->$city = $str2;
+            $v->value_city = $str2;
         }
         //var_dump($array);die;
         return $array;
@@ -82,26 +82,8 @@ abstract class AbstractModel
         //var_dump($sql);
         //$db->setClassName($class);
         $temp = $db->query($sql, [':id' => $id]);
-        $out = self::getOwnValue($temp);
+        $out = self::getValueForId($temp);
         return $out[0];
-    }
-
-    public static function getOwnValue($val){//!!!not end
-        $str='';
-        $spc = static::$spec;
-        //var_dump($val);
-        foreach($val as $v) {
-            $str.= $v->$spc;
-            $arr = explode(',',$str);
-            $str='';
-                foreach($arr as $voo){
-                    $str.= self::nameValForId($voo).',';
-                }
-            $str = trim($str,',');
-            $v->value_rented = $str;
-        }
-        //var_dump($val);die;
-        return $val;
     }
 
     private static function nameSpecValForId($id){
@@ -199,6 +181,14 @@ abstract class AbstractModel
         $par = static::$city;
         return $out->$par;
     }
+    public static function giveName($id)
+    {
+        $sql = 'SELECT * FROM ' . static::$table . ' WHERE ' .  static::$id  . '=:id ';
+        $db = new DB();
+        $out = $db->fetch($sql, [':id' => $id]);
+        $par = 'name_' . static::$table;
+        return $out->$par;
+    }
     /*
      * получаем выбранные опции
      * для селекторов
@@ -223,13 +213,12 @@ abstract class AbstractModel
         }
         $val = self::findOneByPk($id);
         $allId = explode(',',$val->$spc);
-
         foreach($allId as $voo){
             foreach ($data as $item) {
                 if($item->$idspc == $voo) $item->select = 'selected';
                 if(!isset($item->select)) $item->select = '';
             }
-        }//var_dump($param);
+        }
         return $data;
     }
 }

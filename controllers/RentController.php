@@ -9,18 +9,61 @@ extends AbstractController
     protected static $id_spec = 'id_rented';
     protected static $tab_spec = 'rented_name';
 
+    public function getNameUserForId($id){
+        $act = $this->getModelForId($id);
+        $out = new $act();
+        return $out->giveName($id);
+    }
+    public function getModelForId($id){
+        $user = new User();
+        $spec = $user->specProfile($id);
+        if ($spec == 1) {
+            $act = 'Org';
+        }elseif($spec == 2){
+            $act = 'Masters';
+        }else{
+            $act = 'Shop';
+        }
+        return $act;
+    }
+    public function actionOne()
+    {
+        $id = $_GET['id'];
+        $model =  $this->getModelForId($id);
+        $v = new $model();
+        $val = $v->findOneByPk($id);
+        $c = $model . 'Controller';
+        $ctrl = new $c();
+        $ctrl->actionOne();
+    }
+    public function actionFind()
+    {
+        if (isset($_GET['id'])){
+            $col = $_GET['id'];
+            $col2 = '%';
+        }else {
+            $col = $_POST['id_rented'];
+            $col2 = $_POST['city_rent'];
+        }
+        $val = Rent::findOneByColumm($col,$col2);
 
+        foreach ($val as $v){
+            $v->name = $this->getNameUserForId($v->id_users);
+        }
+        //var_dump($val);
+        $view = new View();
+        $view->rent = $val ;
+        $view->display('rent\find.php');
+    }
 
     public  function actionAll()
     {
         $data = new Rent();
-        //$val = $data->getOwnValue();
         $city = $data->findAllOpt('city');
         $spc = $data->findAllOpt('rented_name');
         $view = new View();
         $view->city = $city;
         $view->spc = $spc ;
-        //$view->rent = $val;
         $view->display( 'rent\all.php');
     }
 

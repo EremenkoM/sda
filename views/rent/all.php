@@ -14,17 +14,16 @@
         </select>
         <input type="submit" value="Поиск">
     </form>
-    <?php foreach ($city as $c):?>
+
     <div class="user_view">
-        <h1><?=$c->value_city;?></h1>
+<h1>Сдают в аренду</h1>
             <?php
-            $rent = Rent::getOwnValue($c->id_city);
             //var_dump($rent);
-            foreach ($rent as $item):?>
+            foreach ($spc as $item):?>
                     <span>
-                        <a href="index.php?ctrl=Rent&act=One&id=<?=$item->id_rented;?>"><?=$item->value_rented; ?></a>
+                        <a href="index.php?ctrl=Rent&act=Find&id=<?=$item->id_rented;?>"><?=$item->value_rented; ?></a>
                     </span>
             <?php endforeach; ?>
     </div>
-    <?php endforeach; ?>
+
 </div>

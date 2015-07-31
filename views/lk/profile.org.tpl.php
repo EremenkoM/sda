@@ -21,8 +21,10 @@
                     <input type="text" name="name" size="50" value="<?=$org->name_org;?>">
                     <br>
                     Город:<br>
+                    <?php //var_dump($city);?>
                     <select id="tokenize" multiple="multiple" class="tokenize-sample" name="city[]">
-                        <?php foreach ($city as $item):?>
+                        <?php
+                        foreach ($city as $item):?>
                             <option <?=$item->select;?> value= "<?=$item->id_city;?>"><?=$item->value_city;?></option>
                         <?php endforeach; ?>
                     </select><br><br>

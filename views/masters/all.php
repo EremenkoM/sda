@@ -15,7 +15,7 @@
         </select>
         <input type="submit" value="Поиск">
     </form>
-<?php var_dump($masters);?>
+<?php //var_dump($masters);?>
     <?php foreach ($masters as $item):?>
     <div class="user_view">
 
@@ -24,7 +24,7 @@
         </a>
                     <span><?php echo $item->name_masters; ?>
                         <?php echo $item->surname_masters; ?></span><br>
-        <span> <?=$item->city;?></span>
+        <span> <?=$item->value_city;?></span>
         <br>
         <span>Специальность: <?php echo $item->value_prof; ?></span>
 

@@ -15,7 +15,7 @@
         <input type="submit" value="Поиск">
     </form>
 <?php
-var_dump($org);
+//var_dump($org);
 foreach ($org as $item):?>
     <div class="user_view">
 
@@ -24,7 +24,7 @@ foreach ($org as $item):?>
         </a>
                             <span>
                                 <?php echo $item->name_org; ?>
-                                <?php echo $item->city_org; ?>
+                                <?php echo $item->value_city; ?>
                             </span>
         <br>
         <span>Специальность: <?php echo $item->value_spec; ?></span>
